@@ -1,4 +1,4 @@
-import { DataBaseError } from '../../errors/typeError.js';
+import { DataBaseError } from '../../errors/TypeError.js';
 import { Libros } from '../../model/Libros.models.js';
 import { Usuario } from '../../model/Usuario.model.js';
 
