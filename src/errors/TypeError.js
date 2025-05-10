@@ -31,6 +31,12 @@ export class AuthError extends CustomError {
     }
 }
 
+export class PaymentsError extends CustomError {
+    constructor(message, statusCode, details) {
+        super(message || 'Error en el servicio de pagos', statusCode || 500, details);
+    }
+}
+
 export class InternalServerError extends CustomError {
     constructor(message, statusCode, details) {
         super(message || 'Error interno en el servidor', statusCode || 500, details);

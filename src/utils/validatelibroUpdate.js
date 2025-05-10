@@ -7,6 +7,7 @@ export const validateLibroUpdate = (data) => {
         genero: v => typeof v === 'string' && v.trim().length > 0,
         precio: v => typeof v === 'number' && v >= 0,
         stock: v => Number.isInteger(v) && v >= 0,
+        descripcion: v => typeof v === 'string' && v.trim().length >= 3,
         ano_publicacion: v => Number.isInteger(v) && v >= 0
     };
   

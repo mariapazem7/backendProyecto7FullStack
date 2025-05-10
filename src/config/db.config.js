@@ -5,7 +5,7 @@ import { updateDocsDB } from '../services/db/updateDocs.js';
 
 const { db } = envs;
 
-export const dbConnect = async({updateDocs = false} = {}) => {
+export const dbConnect = async({ updateDocs = false } = {}) => {
     try {
         await mongoose.connect(db.uri);
         console.log('Nos conectamos a MongoDB!');

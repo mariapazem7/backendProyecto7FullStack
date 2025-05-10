@@ -1,5 +1,6 @@
 
 import { createLibrosService, deleteLibrosByIdService, getAllLibrosService, getLibrosbyIdService, updateLibroByIdService, getDeleteAllLibrosService, getDeleteLibrosbyIdService } from '../services/libros.services.js';
+import { buildFileUrl } from '../utils/files/buildFileUrl.js';
 
 export const getAllLibros = async(req, res, next) => {
     try {
@@ -36,7 +37,13 @@ export const getLibrosbyId = async(req, res, next) => {
 
 export const createLibros = async(req, res, next) => {
     try {
-        const dataLibro = req.body;
+        let imageUrl = '';
+        if(req.file) imageUrl = buildFileUrl(req, req.file.filename, 'libros');
+
+        const dataLibro = {
+            ...req.body,
+            imagen: imageUrl
+        };
         const libro = await createLibrosService(dataLibro);
 
         res.status(201).json({

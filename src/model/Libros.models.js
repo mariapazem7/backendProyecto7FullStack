@@ -9,6 +9,18 @@ const librosSchema = new Schema({
     precio: {type: Number, required: true},
     stock: {type: Number, required: true, min: [0, 'El stock no puede ser negativo'],},
     ano_publicacion:{type: Number, required: true},
+    descripcion: {type: String, required: true},
+    uso:{type: String, required: true},
+    imagen: {
+        type: String,
+        trim: true,
+        validate: {
+            validator(value) {
+                return /^https?:\/\/.*\.(jpg|jpeg|png|webp|gif)$/i.test(value);
+            },
+            message: 'La URL de la imagen no es valida'
+        }
+    },
     isActive: {type: Boolean, default: true},
 }, { 
     versionKey: false, 

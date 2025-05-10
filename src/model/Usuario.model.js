@@ -31,6 +31,16 @@ const usuarioSchema = new Schema({
         trim: true, 
         
     },
+    imagen: {
+        type: String,
+        trim: true,
+        validate: {
+            validator(value) {
+                return /^https?:\/\/.*\.(jpg|jpeg|png|webp|gif)$/i.test(value);
+            },
+            message: 'La URL de la imagen no es valida'
+        }
+    },
     isActive: { type: Boolean, default: true },
     isAdmin: {type: Boolean, default: false }
 }, { 

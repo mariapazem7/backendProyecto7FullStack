@@ -7,6 +7,7 @@ export const formateUserData = (data) => {
         correo,
         telefono,
         fecha_nacimiento,
+        imagen,
         isAdmin = false,
         password: hashedPassword
     } = data;
@@ -17,6 +18,7 @@ export const formateUserData = (data) => {
         correo,
         telefono,
         fecha_nacimiento,
+        imagen,
         password: hashedPassword
     };
 
@@ -32,6 +34,7 @@ export const formateUserData = (data) => {
         correo,
         telefono,
         fecha_nacimiento,
+        imagen: imagen || null,
         password: hashedPassword,
         isAdmin
     };

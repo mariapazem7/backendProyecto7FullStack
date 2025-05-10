@@ -1,8 +1,18 @@
 import { registerService, loginService, getUserById, updateUserService } from '../services/auth.service.js';
+import { buildFileUrl } from '../utils/files/buildFileUrl.js';
+
 
 export const register = async(req, res, next) =>{
     try {
-        const userData = req.body;
+
+        let imageUrl = '';
+        if(req.file) imageUrl = buildFileUrl(req, req.file.filename, 'usuarios');
+
+        const userData = {
+            ...req.body,
+            imagen: imageUrl
+        };
+        
         const user = await registerService(userData);
 
         res.status(201).json({
@@ -17,7 +27,6 @@ export const register = async(req, res, next) =>{
     
     }
 };
-
 
 export const login = async(req, res, next) => {
     try {
