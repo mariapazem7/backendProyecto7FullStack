@@ -3,7 +3,7 @@
 ## Estructura del Proyecto
 
 ```bash
-react-context/
+proyectoBUdd/
 ├── node_modules/
 ├── public/
 ├── src/
